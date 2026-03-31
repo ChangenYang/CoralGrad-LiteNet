@@ -4,134 +4,108 @@
   <img src="CoralGrad-LiteNet Diffusion Model-Enhanced Coral Identification.png" alt="CoralGrad-LiteNet Cover" width="600"/>
 </p>
 
-A lightweight and efficient multi-scale network for benthic imagery analysis, enhanced with diffusion-based data augmentation.
+<p align="center">
+  <b>A lightweight and efficient multi-scale framework for benthic imagery analysis</b><br/>
+  enhanced with diffusion-based data augmentation.
+</p>
 
 <div align="center">
-  
-[![Paper](https://img.shields.io/badge/Paper-CG--LiteNet-blue.svg)](#-citation)  
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](#-license)  
+
+[![Paper](https://img.shields.io/badge/Paper-CG--LiteNet-blue.svg)](#citation)
+[![License](https://img.shields.io/badge/License-See%20Repository-green.svg)](#license)
 
 </div>
 
 ---
 
-## 📌 Project Background
-**Project Background**：Coral reefs support more than 25% of marine life but cover only 0.25% of the ocean surface. Monitoring their health is critical for marine ecosystem balance. Traditional manual underwater surveys are inefficient, and existing AI models struggle with densely overlapping corals, complex textures, and deployment on edge devices.
+## Project Background
 
-## 📝 Project Overview
-**CoralGrad-LiteNet (CG-LiteNet)** is a **lightweight, multi-scale, diffusion model–enhanced coral detection framework** designed for real-time monitoring in underwater environments. It addresses the challenges of dense coral distribution, complex textures, and underwater degradation by introducing:
-- **GA-HFFM** (*Gradient-Aware Hierarchical Feature Fusion Module*): improves global modeling and fine-grained boundary perception.  
-- **Slim Backbone/Neck** (*GSConv + VoV-GSCSP*): reduces parameters and FLOPs while preserving representation power.  
-- **DADH** (*Dynamically Anchored Distribution-aware Head*): balances coupled/decoupled heads with grouped conv, multi-scale fusion, and dynamic anchoring.  
-- **Wise-IoU v2 Loss**: stabilizes regression with dynamic gradient reallocation.  
-- **Diffusion Model Data Augmentation** (*LoRA + ControlNet on FLUX.1*): addresses class imbalance and limited samples.  
+Coral reefs support more than 25% of marine life while covering only 0.25% of the ocean surface. Efficient and accurate monitoring is essential for ecosystem conservation, yet underwater surveys remain labor-intensive and challenging in dense, texture-rich, and degraded visual environments.
 
-**Key results:**  
-with only **2.1 MB parameters** and **~5.4 GFLOPs**, running at **196–385 FPS**.
-- On **UODAC Dataset**: AP50 = **83.5%**  
-- On **Sanya-Coral Dataset**: mAP50 = **84.8%**  
-- On **Sanya-Coral AI-Enhanced Dataset**: mAP50 = **87.1%**  
+## Project Overview
 
----
-## 📅 Recent Updates  
-- **[2025/08/18]**: We have uploaded an introduction to CoralGrad-LiteNet. After submission, we will make the dataset public, and if accepted, we will make the source code public！！！
----
+**CoralGrad-LiteNet (CG-LiteNet)** is a lightweight, multi-scale, diffusion-enhanced coral detection framework developed for real-time underwater monitoring.
 
-## 🚀 Performance Highlights
-- **Lightweight & Efficient**: only 2.1 MB, 5.4 GFLOPs.  
-- **Enhanced Global Modeling**: better boundary and context perception (ERF & CAM visualizations).  
-- **Diffusion-Augmented Training**: +82.5% data expansion improves underrepresented coral classes.  
+The core design of CoralGrad-LiteNet includes:
 
----
+- **GA-HFFM**: a gradient-aware hierarchical feature fusion module for enhanced global context modeling and fine-grained boundary perception.
+- **Slim Backbone/Neck**: `GSConv + VoVGSCSP` for lightweight feature extraction and efficient multi-scale fusion.
+- **DADH**: a dynamically anchored distribution-aware detection head for efficient multi-scale prediction.
 
+## Update Log
 
-## 📊 Datasets
+- **🔜 [To appear]**: After formal publication of the paper, we will update the model detail figures, technical design illustrations, and the diffusion-based data augmentation scheme.
+- **🎉 [2026/03/31]**: CoralGrad-LiteNet dataset and source code were officially released.
+- **📘 [2026/03/28]**: The CoralGrad-LiteNet paper was officially accepted by *Engineering Applications of Artificial Intelligence (EAAI)*.
+- **📝 [2025/08/18]**: The first public introduction to CoralGrad-LiteNet was released.
 
-We use three datasets:
+## Datasets
 
-* **Sanya-Coral Dataset** (1,149 images, 8 coral species)
-* **Sanya-Coral AI-Enhanced Dataset** (2,097 images, augmented with diffusion models)
-* **UODAC Dataset** (7,782 images, 4 marine species for generalization)
+The current release involves three datasets:
 
-📥 **Download Links:** Coming soon.
+- **Sanya-Coral Dataset** (1,149 images, 8 coral species)
+- **Sanya-Coral AI-Enhanced Dataset** (2,097 images, augmented with diffusion models)
+- **UODAC Dataset** (7,782 images, 4 marine species for generalization)
 
+Dataset share link:
 
-## 📈 Performance Comparison of CG-LiteNet with SOTA Models
+- https://pan.quark.cn/s/b853984488a5#/list/share
 
-| Model      | Dataset     | mAP50    | mAP50-95 | Params | FLOPs | FPS |
-| ---------- | ----------- | -------- | -------- | ------ | ----- | --- |
-| YOLOv8    | Sanya-Coral | 81.9 | 54.6   | 3.0MB | 8.1G  | 312 |
-| YOLOv9    | Sanya-Coral | 81.1 | 54.2   | 1.97MB | 7.6G  | 232.5 |
-| YOLOv10   | Sanya-Coral | 81.2 | 53.6   | 2.26MB | 6.5G  | 400 |
-| YOLOv11    | Sanya-Coral | 81.2 | 54.5   | 2.58MB | 6.3G  | 153 |
-| CG-LiteNet | Sanya-Coral | **84.8** | **57.3** | **2.1MB**  |**5.4G** | 196 |
-| CG-LiteNet | AI-Enhanced|**87.1**|**63.6**|**2.1MB**|**5.4G**|**384**|
-| CG-LiteNet | UODAC       | **83.5** | **70.7** | **2.1MB** | **5.3G** | —   |
+## Dataset Access and Usage
 
-## 🧩 Framework
-Diffusion Model Data Augmentation（Generate images）
-▼
-Input 
-▼
-Slim Backbone
-▼
-Slim Neck
-▼
-DADH Head ├──► Classification
-                      └──► Regression (Wise-IoU v2）
+Dataset applications, academic use requests, and related questions are handled through the first author:
 
-## 📂 Project Structure
+- **Changen Yang**
+- **Email:** 24220855100020@hainanu.edu.cn
+
+Support for comparison experiments is also available through author contact.
+
+## Project Structure
 
 ```bash
-CoralGrad-LiteNet/(to be added)
+D:\CG-LiteNet_OpenSource
+├── README.md
+├── LICENSE
+├── requirements.txt
+├── configs
+│   └── CG-LiteNet.yaml
+├── core
+│   ├── cg_litenet_core.py
+│   └── INTEGRATION.md
+└── weights
 ```
-## ⚙️ Installation
+
+## Minimal Usage
 
 ```bash
-Will be published after our article is accepted.
+pip install -r requirements.txt
 ```
 
-## 🏋️ Training
+Register the modules defined in `core/cg_litenet_core.py` in the local Ultralytics project, then build the model with `configs/CG-LiteNet.yaml`.
 
-```bash
-Will be published after our article is accepted.
-```
+## Weight Release
 
-## 🔍 Evaluation
+- `weights\CG-litenet-NoAIdataset.pt`
 
-```bash
-Will be published after our article is accepted.
-```
-
-## 🎥 Inference Demo
-
-```bash
-Will be published after our article is accepted.
-```
-
-## 📚 Citation
-
-If you use **CoralGrad-LiteNet** in your research, please cite:
+## Citation
 
 ```bibtex
-@article{yang2025coralgradlitenet,
+@article{yang2026coralgradlitenet,
   title={Diffusion Model-Enhanced Coral Identification: A Lightweight Multi-Scale Network for Benthic Imagery Analysis},
   author={Yang, Changen and et al.},
-  journal={...},
-  year={...}
+  journal={Engineering Applications of Artificial Intelligence},
+  year={2026}
 }
 ```
 
-## 📜 License
+## License
 
-This project is released under the [MIT License](LICENSE).
+See `LICENSE` for redistribution and derivative-use terms.
 
-## 🤝 Acknowledgements
+## Contact
 
-* Built on **YOLOv11** framework.
-* LoRA + ControlNet for diffusion-based augmentation.
-* Supported by **Sanya National Coral Cultivation Experimental Center**.
+For collaboration, dataset usage, or comparison experiments:
 
----
+- **Changen Yang**
+- **Email:** 24220855100020@hainanu.edu.cn
 
-🔗 Official paper: [Diffusion Model-Enhanced Coral Identification](https://github.com/yangchangen-s/CoralGrad-LiteNet)
