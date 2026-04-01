@@ -4,7 +4,6 @@ import torch
 import torch.nn as nn
 
 from ultralytics.nn.modules import C2f, Conv, DFL
-from ultralytics.nn.modules.conv import DWConv
 from ultralytics.utils.tal import dist2bbox, make_anchors
 
 __all__ = [
@@ -12,12 +11,12 @@ __all__ = [
     "VoVGSCSP",
     "GA_HFFM",
     "CSP_GA_HFFM",
-    "Detect_Efficient",
+    "DADH",
 ]
 
 
 class GSConv(nn.Module):
-    """GSConv from the original slim-neck implementation."""
+    """GSConv module used in CoralGrad-LiteNet."""
 
     def __init__(self, c1, c2, k=1, s=1, p=None, g=1, d=1, act=True):
         super().__init__()
@@ -67,8 +66,6 @@ class VoVGSCSP(nn.Module):
 
 
 class GA_HFFM(nn.Module):
-    """Open-source release name for the original PMSFA block."""
-
     def __init__(self, inc):
         super().__init__()
         self.conv1 = Conv(inc, inc, k=3)
@@ -92,7 +89,7 @@ class CSP_GA_HFFM(C2f):
         self.m = nn.ModuleList(GA_HFFM(self.c) for _ in range(n))
 
 
-class Detect_Efficient(nn.Module):
+class DADH(nn.Module):
     dynamic = False
     export = False
     shape = None

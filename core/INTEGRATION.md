@@ -1,19 +1,14 @@
-﻿# Integration Note
+﻿# Integration
 
-This is a core-only release, not a full fork.
+This repository provides the released core modules for CoralGrad-LiteNet.
 
-To use this model with Ultralytics:
+To integrate the model into a local Ultralytics environment:
 
 1. Install a compatible `ultralytics` package.
-2. Copy `core/cg_litenet_core.py` into your custom project.
-3. Import and register these classes in your local model parser:
+2. Place `core/cg_litenet_core.py` into the target project.
+3. Register the following classes in the local model parser:
    - `GSConv`
    - `VoVGSCSP`
    - `CSP_GA_HFFM`
-   - `Detect_Efficient`
+   - `DADH`
 4. Build the model with `configs/CG-LiteNet.yaml`.
-
-Release naming note:
-
-- original local name: `PMSFA`
-- released name: `GA_HFFM`

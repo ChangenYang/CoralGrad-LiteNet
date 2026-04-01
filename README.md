@@ -1,4 +1,4 @@
-# CoralGrad-LiteNet: Diffusion Model-Enhanced Coral Identification
+﻿# CoralGrad-LiteNet: Diffusion Model-Enhanced Coral Identification
 
 <p align="center">
   <img src="CoralGrad-LiteNet Diffusion Model-Enhanced Coral Identification.png" alt="CoralGrad-LiteNet Cover" width="600"/>
@@ -34,10 +34,10 @@ The core design of CoralGrad-LiteNet includes:
 
 ## Update Log
 
-- **[To appear]**: After formal publication of the paper, we will update the model detail figures, technical design illustrations, and the diffusion-based data augmentation scheme.
-- **[2026/03/31]**: CoralGrad-LiteNet dataset and source code were officially released.
-- **[2026/03/28]**: The CoralGrad-LiteNet paper was officially accepted by *Engineering Applications of Artificial Intelligence (EAAI)*.
-- **[2025/08/18]**: The first public introduction to CoralGrad-LiteNet was released.
+- **🔜 [To appear]**: After formal publication of the paper, we will update the model detail figures, technical design illustrations, and the diffusion-based data augmentation scheme.
+- **🎉 [2026/03/31]**: CoralGrad-LiteNet dataset and source code were officially released.
+- **📘 [2026/03/28]**: The CoralGrad-LiteNet paper was officially accepted by *Engineering Applications of Artificial Intelligence (EAAI)*.
+- **📝 [2025/08/18]**: The first public introduction to CoralGrad-LiteNet was released.
 
 ## Datasets
 
@@ -64,15 +64,15 @@ Support for comparison experiments is also available through author contact.
 
 ```bash
 D:\CG-LiteNet_OpenSource
-├── README.md
-├── LICENSE
-├── requirements.txt
-├── configs
-│   └── CG-LiteNet.yaml
-├── core
-│   ├── cg_litenet_core.py
-│   └── INTEGRATION.md
-└── weights
+|-- README.md
+|-- LICENSE
+|-- requirements.txt
+|-- configs
+|   `-- CG-LiteNet.yaml
+|-- core
+|   |-- cg_litenet_core.py
+|   `-- INTEGRATION.md
+`-- weights
 ```
 
 ## Minimal Usage
