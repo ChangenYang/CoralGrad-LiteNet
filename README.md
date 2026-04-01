@@ -34,10 +34,10 @@ The core design of CoralGrad-LiteNet includes:
 
 ## Update Log
 
-- **🔜 [To appear]**: After formal publication of the paper, we will update the model detail figures, technical design illustrations, and the diffusion-based data augmentation scheme.
-- **🎉 [2026/03/31]**: CoralGrad-LiteNet dataset and source code were officially released.
-- **📘 [2026/03/28]**: The CoralGrad-LiteNet paper was officially accepted by *Engineering Applications of Artificial Intelligence (EAAI)*.
-- **📝 [2025/08/18]**: The first public introduction to CoralGrad-LiteNet was released.
+- **[To appear]**: After formal publication of the paper, we will update the model detail figures, technical design illustrations, and the diffusion-based data augmentation scheme.
+- **[2026/03/31]**: CoralGrad-LiteNet dataset and source code were officially released.
+- **[2026/03/28]**: The CoralGrad-LiteNet paper was officially accepted by *Engineering Applications of Artificial Intelligence (EAAI)*.
+- **[2025/08/18]**: The first public introduction to CoralGrad-LiteNet was released.
 
 ## Datasets
 
@@ -108,4 +108,3 @@ For collaboration, dataset usage, or comparison experiments:
 
 - **Changen Yang**
 - **Email:** 24220855100020@hainanu.edu.cn
-

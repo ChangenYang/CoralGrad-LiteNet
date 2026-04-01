@@ -1,0 +1,38 @@
+﻿# CG-LiteNet core open-source config
+# In this release, the original PMSFA-based block is renamed to GA_HFFM.
+
+nc: 54
+scales:
+  n: [0.50, 0.25, 1024]
+
+backbone:
+  - [-1, 1, GSConv, [64, 3, 2]]
+  - [-1, 1, GSConv, [128, 3, 2]]
+  - [-1, 2, CSP_GA_HFFM, [256, True]]
+  - [-1, 1, GSConv, [256, 3, 2]]
+  - [-1, 2, CSP_GA_HFFM, [512, True]]
+  - [-1, 1, GSConv, [512, 3, 2]]
+  - [-1, 2, CSP_GA_HFFM, [512, True]]
+  - [-1, 1, GSConv, [1024, 3, 2]]
+  - [-1, 2, CSP_GA_HFFM, [1024, True]]
+  - [-1, 1, SPPF, [1024, 5]]
+  - [-1, 2, C2PSA, [1024]]
+
+head:
+  - [-1, 1, nn.Upsample, [None, 2, "nearest"]]
+  - [[-1, 6], 1, Concat, [1]]
+  - [-1, 2, VoVGSCSP, [512]]
+
+  - [-1, 1, nn.Upsample, [None, 2, "nearest"]]
+  - [[-1, 4], 1, Concat, [1]]
+  - [-1, 2, VoVGSCSP, [256]]
+
+  - [-1, 1, GSConv, [256, 3, 2]]
+  - [[-1, 13], 1, Concat, [1]]
+  - [-1, 2, VoVGSCSP, [512]]
+
+  - [-1, 1, GSConv, [512, 3, 2]]
+  - [[-1, 10], 1, Concat, [1]]
+  - [-1, 2, VoVGSCSP, [1024]]
+
+  - [[16, 19, 22], 1, Detect_Efficient, [nc]]
