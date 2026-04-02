@@ -36,6 +36,7 @@ Coral reefs support more than 25% of marine life while covering only 0.25% of th
 - [Highlights](#highlights)
 - [Architecture](#architecture)
 - [Update Log](#update-log)
+- [Paper Access](#paper-access)
 - [Datasets](#datasets)
 - [Project Structure](#project-structure)
 - [Quick Start](#quick-start)
@@ -77,6 +78,10 @@ The core design of CoralGrad-LiteNet includes:
 - `📘 2026/03/28`: The CoralGrad-LiteNet paper was officially accepted by *Engineering Applications of Artificial Intelligence (EAAI)*.
 - `📝 2025/08/18`: The first public introduction to CoralGrad-LiteNet was released.
 
+## Paper Access
+
+- `Limited-time free access`: https://authors.elsevier.com/c/1msk~_LfeK81lN
+
 ## Datasets
 
 The current release involves three datasets:
@@ -91,6 +96,21 @@ The current release involves three datasets:
 
 - `📦 Share link`: https://pan.quark.cn/s/b853984488a5#/list/share
 - `📬 Academic usage`: please contact the first author for dataset applications and comparison experiments.
+
+### Taxonomy Note
+
+Please use the latest and most rigorous biological names when reporting results, preparing annotations, or comparing categories. The dataset labels below should be interpreted as follows:
+
+| Original label | Recommended biological name |
+| --- | --- |
+| `Euphflfiaancora` | `Euphyllia` |
+| `Favosites` | `Favites` |
+| `Platygyra` | `Platygyra` |
+| `WavingHand` | `Anthelia` |
+| `Pachyclavularia` | `Pachyclavularia` |
+| `Plerogyrasinuosa` | `Plerogyra` |
+| `Acropora` | `Acropora` |
+| `Brain Coral` | `Trachyphyllia` |
 
 ## Project Structure
 
