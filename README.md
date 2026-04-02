@@ -99,7 +99,7 @@ The current release involves three datasets:
 
 ### Taxonomy Note
 
-Please use the latest and most rigorous biological names when reporting results, preparing annotations, or comparing categories. The dataset labels below should be interpreted as follows:
+Please use the latest and most rigorous biological names when reporting results, preparing annotations, or comparing categories. We have already made rigorous corrections in the main text of the paper; at present, only some dataset-related labels may still not have been fully updated. Please pay special attention to this point when conducting comparison experiments. The dataset labels below should be interpreted as follows:
 
 | Original label | Recommended biological name |
 | --- | --- |
