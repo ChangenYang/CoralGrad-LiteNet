@@ -38,6 +38,7 @@ Coral reefs support more than 25% of marine life while covering only 0.25% of th
 - [Update Log](#update-log)
 - [Paper Access](#paper-access)
 - [Datasets](#datasets)
+- [Performance Comparison](#performance-comparison)
 - [Project Structure](#project-structure)
 - [Quick Start](#quick-start)
 - [Weights](#weights)
@@ -111,6 +112,20 @@ Please use the latest and most rigorous biological names when reporting results,
 | `Plerogyrasinuosa` | `Plerogyra` |
 | `Acropora` | `Acropora` |
 | `Brain Coral` | `Trachyphyllia` |
+
+## Performance Comparison
+
+The comparative results below were reported in the earliest public project version and are retained here in the current README for convenient reference.
+
+| Model | Dataset | mAP50 | mAP50-95 | Params | FLOPs | FPS |
+| --- | --- | --- | --- | --- | --- | --- |
+| YOLOv8 | Sanya-Coral | 81.9 | 54.6 | 3.0 MB | 8.1G | 312 |
+| YOLOv9 | Sanya-Coral | 81.1 | 54.2 | 1.97 MB | 7.6G | 232.5 |
+| YOLOv10 | Sanya-Coral | 81.2 | 53.6 | 2.26 MB | 6.5G | 400 |
+| YOLOv11 | Sanya-Coral | 81.2 | 54.5 | 2.58 MB | 6.3G | 153 |
+| CG-LiteNet | Sanya-Coral | **84.8** | **57.3** | **2.1 MB** | **5.4G** | **196** |
+| CG-LiteNet | Sanya-Coral AI-Enhanced | **87.1** | **63.6** | **2.1 MB** | **5.4G** | **384** |
+| CG-LiteNet | UODAC | **83.5** | **70.7** | **2.1 MB** | **5.3G** | — |
 
 ## Project Structure
 
